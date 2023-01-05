@@ -56,6 +56,16 @@ public class SwiftHealthPlugin: NSObject, FlutterPlugin {
     let HEADACHE_MODERATE = "HEADACHE_MODERATE"
     let HEADACHE_SEVERE = "HEADACHE_SEVERE"
     let ELECTROCARDIOGRAM = "ELECTROCARDIOGRAM"
+    let VO2MAX = "VO2MAX"
+    let APPLE_WALKING_STEADINESS = "APPLE_WALKING_STEADINESS"
+    let SIX_MINUTE_WALK_TEST_DISTANCE = "SIX_MINUTE_WALK_TEST_DISTANCE"
+    let WALKING_SPEED = "WALKING_SPEED"
+    let WALKIN_STEP_LENGTH = "WALKIN_STEP_LENGTH"
+    let WALKING_ASYMMETRY_PERCENTAGE = "WALKING_ASYMMETRY_PERCENTAGE"
+    let WALKING_DOUBLE_SUPPORT_PERCENTAGE = "WALKING_DOUBLE_SUPPORT_PERCENTAGE"
+    let STAIR_ASCENT_SPEED = "STAIR_ASCENT_SPEED"
+    let STAIR_DESCENT_SPEED = "STAIR_DESCENT_SPEED"
+    let NUMBER_OF_TIMES_FALLEN = "NUMBER_OF_TIMES_FALLEN"
     
     // Health Unit types
     // MOLE_UNIT_WITH_MOLAR_MASS, // requires molar mass input - not supported yet
@@ -107,6 +117,8 @@ public class SwiftHealthPlugin: NSObject, FlutterPlugin {
     let MILLIGRAM_PER_DECILITER = "MILLIGRAM_PER_DECILITER"
     let UNKNOWN_UNIT = "UNKNOWN_UNIT"
     let NO_UNIT = "NO_UNIT"
+    let MILLILITERS_PER_KILOGRAM_PER_MINUTE = "MILLILITERS_PER_KILOGRAM_PER_MINUTE"
+    let METERS_PER_SECOND = "METERS_PER_SECOND"
     
     struct PluginError: Error {
         let message: String
@@ -643,6 +655,8 @@ public class SwiftHealthPlugin: NSObject, FlutterPlugin {
         unitDict[MILLIGRAM_PER_DECILITER] = HKUnit.init(from: "mg/dL")
         unitDict[UNKNOWN_UNIT] = HKUnit.init(from: "")
         unitDict[NO_UNIT] = HKUnit.init(from: "")
+        unitDict[MILLILITERS_PER_KILOGRAM_PER_MINUTE] = HKUnit.init(from: "ml/(kg*min)")
+        unitDict[METERS_PER_SECOND] = HKUnit(from: "m/s")
         
         // Initialize workout types
         workoutActivityTypeMap["ARCHERY"] = .archery
@@ -764,6 +778,16 @@ public class SwiftHealthPlugin: NSObject, FlutterPlugin {
             dataTypesDict[SLEEP_AWAKE] = HKSampleType.categoryType(forIdentifier: .sleepAnalysis)!
             dataTypesDict[EXERCISE_TIME] = HKSampleType.quantityType(forIdentifier: .appleExerciseTime)!
             dataTypesDict[WORKOUT] = HKSampleType.workoutType()
+            dataTypesDict[VO2MAX] = HKSampleType.quantityType(forIdentifier: .vo2Max)!
+            dataTypesDict[APPLE_WALKING_STEADINESS] = HKSampleType.quantityType(forIdentifier: .appleWalkingSteadiness)!
+            dataTypesDict[SIX_MINUTE_WALK_TEST_DISTANCE] = HKSampleType.quantityType(forIdentifier: .sixMinuteWalkTestDistance)!
+            dataTypesDict[WALKING_SPEED] = HKSampleType.quantityType(forIdentifier: .walkingSpeed)!
+            dataTypesDict[WALKIN_STEP_LENGTH] = HKSampleType.quantityType(forIdentifier: .walkingStepLength)!
+            dataTypesDict[WALKING_ASYMMETRY_PERCENTAGE] = HKSampleType.quantityType(forIdentifier: .walkingAsymmetryPercentage)!
+            dataTypesDict[WALKING_DOUBLE_SUPPORT_PERCENTAGE] = HKSampleType.quantityType(forIdentifier: .walkingDoubleSupportPercentage)!
+            dataTypesDict[STAIR_ASCENT_SPEED] = HKSampleType.quantityType(forIdentifier: .stairAscentSpeed)!
+            dataTypesDict[STAIR_DESCENT_SPEED] = HKSampleType.quantityType(forIdentifier: .stairDescentSpeed)!
+            dataTypesDict[NUMBER_OF_TIMES_FALLEN] = HKSampleType.quantityType(forIdentifier: .numberOfTimesFallen)!
             
             healthDataTypes = Array(dataTypesDict.values)
         }

@@ -41,6 +41,16 @@ enum HealthDataType {
   HEADACHE_MODERATE,
   HEADACHE_SEVERE,
   HEADACHE_UNSPECIFIED,
+  VO2MAX,
+  APPLE_WALKING_STEADINESS,
+  SIX_MINUTE_WALK_TEST_DISTANCE,
+  WALKING_SPEED,
+  WALKIN_STEP_LENGTH,
+  WALKING_ASYMMETRY_PERCENTAGE,
+  WALKING_DOUBLE_SUPPORT_PERCENTAGE,
+  STAIR_ASCENT_SPEED,
+  STAIR_DESCENT_SPEED,
+  NUMBER_OF_TIMES_FALLEN,
 
   // Heart Rate events (specific to Apple Watch)
   HIGH_HEART_RATE_EVENT,
@@ -100,6 +110,16 @@ const List<HealthDataType> _dataTypeKeysIOS = [
   HealthDataType.HEADACHE_SEVERE,
   HealthDataType.HEADACHE_UNSPECIFIED,
   HealthDataType.ELECTROCARDIOGRAM,
+  HealthDataType.VO2MAX,
+  HealthDataType.APPLE_WALKING_STEADINESS,
+  HealthDataType.SIX_MINUTE_WALK_TEST_DISTANCE,
+  HealthDataType.WALKING_SPEED,
+  HealthDataType.WALKIN_STEP_LENGTH,
+  HealthDataType.WALKING_ASYMMETRY_PERCENTAGE,
+  HealthDataType.WALKING_DOUBLE_SUPPORT_PERCENTAGE,
+  HealthDataType.STAIR_ASCENT_SPEED,
+  HealthDataType.STAIR_DESCENT_SPEED,
+  HealthDataType.NUMBER_OF_TIMES_FALLEN,
 ];
 
 /// List of data types available on Android
@@ -154,6 +174,7 @@ const Map<HealthDataType, HealthDataUnit> _dataTypeToUnit = {
   HealthDataType.FLIGHTS_CLIMBED: HealthDataUnit.COUNT,
   HealthDataType.MOVE_MINUTES: HealthDataUnit.MINUTE,
   HealthDataType.DISTANCE_DELTA: HealthDataUnit.METER,
+  HealthDataType.VO2MAX: HealthDataUnit.MILLILITERS_PER_KILOGRAM_PER_MINUTE,
 
   HealthDataType.WATER: HealthDataUnit.LITER,
   HealthDataType.SLEEP_IN_BED: HealthDataUnit.MINUTE,
@@ -168,6 +189,17 @@ const Map<HealthDataType, HealthDataUnit> _dataTypeToUnit = {
   HealthDataType.HEADACHE_MODERATE: HealthDataUnit.MINUTE,
   HealthDataType.HEADACHE_SEVERE: HealthDataUnit.MINUTE,
   HealthDataType.HEADACHE_UNSPECIFIED: HealthDataUnit.MINUTE,
+
+  // Mobility
+  HealthDataType.APPLE_WALKING_STEADINESS: HealthDataUnit.PERCENT,
+  HealthDataType.SIX_MINUTE_WALK_TEST_DISTANCE: HealthDataUnit.METER,
+  HealthDataType.WALKING_SPEED: HealthDataUnit.METERS_PER_SECOND,
+  HealthDataType.WALKIN_STEP_LENGTH: HealthDataUnit.METER,
+  HealthDataType.WALKING_ASYMMETRY_PERCENTAGE: HealthDataUnit.PERCENT,
+  HealthDataType.WALKING_DOUBLE_SUPPORT_PERCENTAGE: HealthDataUnit.PERCENT,
+  HealthDataType.STAIR_ASCENT_SPEED: HealthDataUnit.METERS_PER_SECOND,
+  HealthDataType.STAIR_DESCENT_SPEED: HealthDataUnit.METERS_PER_SECOND,
+  HealthDataType.NUMBER_OF_TIMES_FALLEN: HealthDataUnit.COUNT,
 
   // Heart Rate events (specific to Apple Watch)
   HealthDataType.HIGH_HEART_RATE_EVENT: HealthDataUnit.NO_UNIT,
@@ -258,6 +290,8 @@ enum HealthDataUnit {
   // Other units
   BEATS_PER_MINUTE,
   MILLIGRAM_PER_DECILITER,
+  MILLILITERS_PER_KILOGRAM_PER_MINUTE,
+  METERS_PER_SECOND,
   UNKNOWN_UNIT,
   NO_UNIT,
 }
